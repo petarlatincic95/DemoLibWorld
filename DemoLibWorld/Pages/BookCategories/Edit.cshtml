@@ -1,0 +1,35 @@
+﻿@page
+@model DemoLibWorld.Pages.BookCategories.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>BookCategory</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="BookCategory.Id" />
+            <div class="form-group">
+                <label asp-for="BookCategory.CategoryName" class="control-label"></label>
+                <input asp-for="BookCategory.CategoryName" class="form-control" />
+                <span asp-validation-for="BookCategory.CategoryName" class="text-danger"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                 <a asp-page="./Index" class="btn btn-primary">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

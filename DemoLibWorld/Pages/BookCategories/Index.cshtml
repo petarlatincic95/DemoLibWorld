@@ -1,0 +1,37 @@
+﻿@page
+@model DemoLibWorld.Pages.BookCategories.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p >
+    <a asp-page="Create" class="btn btn-primary" style="float:right;">Create New Category</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookCategory[0].CategoryName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.BookCategory) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                <a asp-page="./Delete"  asp-route-id="@item.Id"><img style="float: right;" src="Images/delete.png" width="25" height="25"/></a>
+                <a asp-page="./Edit"    asp-route-id="@item.Id"><img style="float: right;" src="Images/edit.png" width="25" height="25" /></a>
+                <a asp-page="./Details" asp-route-id="@item.Id"><img style="float: right;" src="Images/file.png"width="25" height="25" /></a> 
+              
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

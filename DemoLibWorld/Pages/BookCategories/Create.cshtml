@@ -1,0 +1,34 @@
+﻿@page
+@model DemoLibWorld.Pages.BookCategories.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>BookCategory</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BookCategory.CategoryName" class="control-label"></label>
+                <input asp-for="BookCategory.CategoryName" class="form-control" />
+                <span asp-validation-for="BookCategory.CategoryName" class="text-danger"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <input type="submit"  value="Create" class="btn btn-primary"  />
+                <a asp-page="Index" class="btn btn-danger">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+<br/>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
